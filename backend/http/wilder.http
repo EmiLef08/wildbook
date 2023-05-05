@@ -1,0 +1,39 @@
+POST http://localhost:8000/api/wilder
+Content-Type: application/json
+
+{
+    "name": "Paul",
+    "city": "Reims"
+}
+###
+
+GET http://localhost:8000/api/wilder
+
+###
+
+PUT http://localhost:8000/api/wilder/2
+Content-Type: application/json
+
+{
+    "id": 2,
+    "newData": {
+        "name": "Jane Doe",
+    }
+}
+
+###
+DELETE http://localhost:8000/api/wilder/3
+Content-Type: application/json
+
+{
+    "id": 1
+}
+###
+
+PUT http://localhost:8000/api/addSkill
+Content-Type: application/json
+
+{
+    "wilderName": "Jane Doe",
+    "skillName": "Javascript"
+}
