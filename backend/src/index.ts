@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import dataSource from "./utils/dataSource";
+import dataSource from "./utils";
 import wilderController from "./controller/wilder";
 import skillController from "./controller/skill";
 import gradeController from "./controller/grade";
@@ -25,7 +25,7 @@ app.get("/api/skill", skillController.read);
 app.delete("/api/skill/:id", skillController.delete);
 app.put("/api/skill/:id", skillController.update);
 
-app.put("/api/addskill", wilderController.addSkill);
+// app.put("/api/addskill", wilderController.addSkill);
 
 app.post("/api/grade", gradeController.create);
 app.get("/api/grade", gradeController.read);
@@ -34,9 +34,9 @@ app.use((req, res, next) => {
   res.status(404).send("Sorry can't find that!");
 });
 
-const start = async () => {
+const start = async ():Promise<void> => {
   await dataSource.initialize();
   app.listen(8000, () => console.log("Server started on 8000"));
 };
 
-start();
+void start();

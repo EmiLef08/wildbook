@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const AddSkillToWilderForm = ({ wilders, setWilders }) => {
-  const [skills, setSkills] = useState([]);
+interface Wilder {
+  id: number;
+  name: string;
+}
+
+interface Props {
+  wilders: Wilder[];
+  setWilders: React.Dispatch<React.SetStateAction<Wilder[]>>;
+}
+ interface Skill {
+  id: number;
+  title: string;
+ }
+
+const AddSkillToWilderForm = ({ wilders, setWilders }: Props) => {
+  const [skills, setSkills] = useState<Skill[]>([]);
   const [selectedWilder, setSelectedWilder] = useState("");
-  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   useEffect(() => {
     const fetchSkills = async () => {
       const result = await axios.get("http://localhost:8000/api/skill");
@@ -54,8 +68,8 @@ const AddSkillToWilderForm = ({ wilders, setWilders }) => {
           Select a skill
         </option>
         {skills.map((skill) => (
-          <option key={skill.id} value={skill.name}>
-            {skill.name}
+          <option key={skill.id} value={skill.title}>
+            {skill.title}
           </option>
         ))}
       </select>

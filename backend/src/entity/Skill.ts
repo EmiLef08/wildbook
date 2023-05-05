@@ -7,7 +7,7 @@ export class Skill {
     id: number
 
     @Column()
-    name: string
+    title: string
 
     @OneToMany(() => Grade, (grade) => grade.skill)
     grades: Grade[];

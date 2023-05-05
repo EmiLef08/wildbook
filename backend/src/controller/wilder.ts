@@ -1,4 +1,4 @@
-import dataSource from "../utils.js";
+import dataSource from "../utils";
 import { Wilder } from "../entity/Wilder";
 import { Grade } from "../entity/Grade";
 import { Request, Response } from "express";

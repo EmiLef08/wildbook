@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './App.module.css';
-// import Wilder from '../components/Wilder';
+
+import Wilder, { IWilderProps } from './components/Wilder';
 import axios from 'axios';
-// import AddWilder from '../components/AddWilder';
+import AddWilderForm from './components/AddWilderForm';
+import AddGradeForm from './components/AddGradeForm';
 // import PropTypes from "prop-types";
 
 interface ISkillFromAPI {
@@ -18,14 +20,19 @@ interface IGradeFromAPI {
 interface IWilderFromAPI {
   name: string;
   id: number;
-  grades: IGradeFromAPI;
+  grades: IGradeFromAPI[];
+  skill: ISkillFromAPI;
+  city: string;
 }
 
+
 const formatWildersFromApi = (wilders: IWilderFromAPI[]): IWilderProps[] => wilders.map((wilder) => {
-return {
+console.log(wilders, "Wilders");
+  return {
   id: wilder.id,
-  namde: wilder.name,
-  skill: wilder.grades.map((grade) => {
+  name: wilder.name,
+  city: wilder.city,
+  skills: wilder.grades.map((grade: IGradeFromAPI) => {
     return { votes:grade.grade, title: grade.skill.name };
   }),
 };

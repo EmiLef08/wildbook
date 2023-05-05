@@ -9,12 +9,13 @@ export interface IWilderProps {
   name: string;
   id: number;
   skills: ISkillProps[];
+  city: string;
 }
 
   const handleDelete = (id: number) => {
     axios.delete("http://localhost:8000/api/wilder/" + id)
   };
-  const Wilder = ({ name, id, skills }: IWilderProps) => {
+  const Wilder = ({ name, id, skills, city }: IWilderProps) => {
     return (
       <article className={styles.card}>
         <img src={blank_profile} alt="Wilder Profile" />

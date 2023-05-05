@@ -2,7 +2,7 @@ POST http://localhost:8000/api/skill
 Content-Type: application/json
 
 {
-    "name": "Express"
+    "title": "Express"
 }
 
 ###
@@ -17,7 +17,7 @@ Content-Type: application/json
 {
     "id": 2,
     "newData": {
-        "name": "PHP"
+        "title": "PHP"
     }
 }
 
